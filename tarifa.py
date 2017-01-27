@@ -18,3 +18,19 @@ class tarifa():
     def getTarifaFin(self):
         return self.tarifaFin
     
+    
+def calcularPrecio(tarifa,tiempoDeServicio):
+    total = 0
+    start_date =tiempoDeServicio[0]
+    end_date = tiempoDeServicio[1]
+    
+    if (tiempoDeServicio[0] > tiempoDeServicio[1]):
+        raise Exception('La hora de salida tiene que ser mayor')
+     
+    d = start_date
+    delta = timedelta(seconds=3600)
+    while d < end_date:
+        total += tarifa.getTarifaFin()
+        d += delta
+        
+    return total
