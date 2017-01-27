@@ -33,7 +33,7 @@ def calcularPrecio(tarifa,tiempoDeServicio):
         if (d.weekday() == 6 or d.weekday() == 5) : 
             total += tarifa.getTarifaFin()
         else : 
-            total += tarifa.getTarifaFin()
+            total += tarifa.getTarifaSem()
         d += delta
         
     return total
