@@ -34,6 +34,11 @@ class Test(unittest.TestCase):
         time = [datetime(2017,1,8,0,0,0),datetime(2017,1,15,0,0,0)]
         self.assertEquals(calcularPrecio(self.prueba,time),24*5*self.prueba.getTarifaSem()+24*2*self.prueba.getTarifaFin())
         
+    def testfechamayor(self):
+        with self.assertRaises(Exception) as context:
+            time = [datetime(2016, 12,13,0,0,0), datetime(1996, 2,7,0,0,0)]
+            calcularPrecio(tarifa(2,6),time)
+        self.assertTrue('La hora de salida tiene que ser mayor' in str(context.exception))
     
     
 if __name__ == '__main__':
