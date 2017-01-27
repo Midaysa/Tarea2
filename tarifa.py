@@ -30,7 +30,10 @@ def calcularPrecio(tarifa,tiempoDeServicio):
     d = start_date
     delta = timedelta(seconds=3600)
     while d < end_date:
-        total += tarifa.getTarifaFin()
+        if (d.weekday() == 6 or d.weekday() == 5) : 
+            total += tarifa.getTarifaFin()
+        else : 
+            total += tarifa.getTarifaFin()
         d += delta
         
     return total
