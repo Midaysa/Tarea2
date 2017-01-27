@@ -13,6 +13,12 @@ class Test(unittest.TestCase):
     
     def testtarifa(self):
         tarifa(2,3)
+        
+    def testtarifaFin(self):
+        self.assertEqual(tarifa(1,3).getTarifaFin(),1)
+    
+    def testtarifaSem(self):
+        self.assertEqual(tarifa(1,3).getTarifaSem(),3)    
     
     
 if __name__ == '__main__':
